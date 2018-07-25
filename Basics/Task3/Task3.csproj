@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ADC1FBFE-3528-4E97-A1A3-D8A8E3B4DA68}</ProjectGuid>
+    <ProjectGuid>{513B95EC-5BB4-4DE6-AA58-E45F8CA64D5C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Menu</RootNamespace>
-    <AssemblyName>Menu</AssemblyName>
+    <RootNamespace>Task3</RootNamespace>
+    <AssemblyName>Task3</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,40 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Task1\Task1.csproj">
-      <Project>{1faa2eae-861c-4ebb-8614-3813ee85faa1}</Project>
-      <Name>Task1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task2\Task2.csproj">
-      <Project>{b86ab774-b36e-4cf3-8853-f9742de45f21}</Project>
-      <Name>Task2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task3\Task3.csproj">
-      <Project>{513b95ec-5bb4-4de6-aa58-e45f8ca64d5c}</Project>
-      <Name>Task3</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task5\Task5.csproj">
-      <Project>{61119571-39a1-4f1d-9370-a683797c4f06}</Project>
-      <Name>Task5</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task6\Task6.csproj">
-      <Project>{6c4e79dc-c419-43ea-8ae1-8cd138091de0}</Project>
-      <Name>Task6</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task7\Task7.csproj">
-      <Project>{a865ba32-9dda-4791-a2ea-3fbd723ec635}</Project>
-      <Name>Task7</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task8\Task8.csproj">
-      <Project>{e68a4a3e-c6b1-435e-922b-2a2919d2eb53}</Project>
-      <Name>Task8</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task9\Task9.csproj">
-      <Project>{339fed30-b720-4f57-94e2-614dbb63d4c3}</Project>
-      <Name>Task9</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
