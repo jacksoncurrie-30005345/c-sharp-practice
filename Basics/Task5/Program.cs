@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task5
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             Console.Write("Enter number between 1-12: ");
             string input = Console.ReadLine();

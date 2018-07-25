@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task8
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             Console.Write("What was your final course mark? ");
             int mark = Int32.Parse(Console.ReadLine());
