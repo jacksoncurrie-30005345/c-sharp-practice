@@ -16,6 +16,7 @@ namespace Menu
             {
                 Console.Write(
                     "1. Task 1\n" +
+                    "2. Task 2\n" +
                     "5. Task 5\n" +
                     "6. Task 6\n" +
                     "7. Task 7\n" +
@@ -31,6 +32,10 @@ namespace Menu
                 {
                     case 1:
                         Task1.Program.Main();
+                        break;
+
+                    case 2:
+                        Task2.Program.Main();
                         break;
 
                     case 5:
