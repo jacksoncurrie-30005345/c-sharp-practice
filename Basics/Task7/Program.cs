@@ -10,7 +10,7 @@ namespace Task7
     {
         public static void Main()
         {
-            Console.Write("Enter first number: ");
+            Console.Write("\nEnter first number: ");
             int num1 = Int32.Parse(Console.ReadLine());
             Console.Write("Enter second number: ");
             int num2 = Int32.Parse(Console.ReadLine());
@@ -20,16 +20,16 @@ namespace Task7
             if (num1 > num2)
             {
                 if (num1 > num3)
-                    Console.WriteLine("Largest is {0}", num1);
+                    Console.WriteLine("Largest is {0}\n", num1);
                 else
-                    Console.WriteLine("Largest is {0}", num3);
+                    Console.WriteLine("Largest is {0}\n", num3);
             }
             else
             {
                 if (num2 > num3)
-                    Console.WriteLine("Largest is {0}", num2);
+                    Console.WriteLine("Largest is {0}\n", num2);
                 else
-                    Console.WriteLine("Largest is {0}", num3);
+                    Console.WriteLine("Largest is {0}\n", num3);
             }
         }
     }

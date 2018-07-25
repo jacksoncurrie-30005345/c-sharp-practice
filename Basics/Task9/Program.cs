@@ -16,6 +16,7 @@ namespace Task9
             {
                 Console.WriteLine(name);
             }
+            Console.WriteLine();
         }
     }
 }

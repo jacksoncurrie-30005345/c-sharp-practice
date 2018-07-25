@@ -10,12 +10,12 @@ namespace Task4
     {
         public static void Main()
         {
-            Console.Write("Enter your first name: ");
+            Console.Write("\nEnter your first name: ");
             string firstname = Console.ReadLine();
             Console.Write("Enter your last name: ");
             string lastname = Console.ReadLine();
 
-            Console.WriteLine("Hello {0} {1}", firstname, lastname);
+            Console.WriteLine("Hello {0} {1}\n", firstname, lastname);
         }
     }
 }

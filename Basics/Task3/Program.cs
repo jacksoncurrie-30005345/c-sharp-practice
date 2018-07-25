@@ -10,12 +10,32 @@ namespace Task3
     {
         public static void Main()
         {
-            Console.Write("Enter first number: ");
-            int num1 = Int32.Parse(Console.ReadLine());
-            Console.Write("Enter second number: ");
-            int num2 = Int32.Parse(Console.ReadLine());
+            bool valid = false;
+            int num1 = 0;
+            int num2 = 0;
 
-            Console.WriteLine("{0} x {1} = {2}", num1, num2, num1 * num2);
+            do
+            {
+                Console.Write("\nEnter first number: ");
+                string snum1 = Console.ReadLine();
+                Console.Write("Enter second number: ");
+                string snum2 = Console.ReadLine();
+
+                try
+                {
+                    num1 = Int32.Parse(snum1);
+                    num2 = Int32.Parse(snum2);
+                    valid = true;
+                }
+                catch (FormatException)
+                {
+                    Console.Clear();
+                    Console.WriteLine("\nMust be numbers");
+                }
+            }
+            while (!valid);
+
+            Console.WriteLine("{0} x {1} = {2}\n", num1, num2, num1 * num2);
         }
     }
 }

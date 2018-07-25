@@ -10,7 +10,7 @@ namespace Task6
     {
         public static void Main()
         {
-            Console.Write("Enter first number: ");
+            Console.Write("\nEnter first number: ");
             int num1 = Convert.ToInt32(Console.ReadLine());
             Console.Write("Enter second number: ");
             int num2 = Convert.ToInt32(Console.ReadLine());
@@ -20,7 +20,7 @@ namespace Task6
             num1 = temp;
 
             Console.WriteLine("First number is {0}", num1);
-            Console.WriteLine("Second number is {0}", num2);
+            Console.WriteLine("Second number is {0}\n", num2);
         }
     }
 }
