@@ -4,15 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Basics
+namespace Task5
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter your name: ");
-            string name = Console.ReadLine();
-            Console.WriteLine("Hello " + name);
+            Console.Write("Enter number between 1-12: ");
+            string input = Console.ReadLine();
+            int number = Convert.ToInt32(input);
+
+            for (int i = 1; i <= 12; i++)
+                Console.WriteLine("{0} x {1} = {2}", number, i, number * i);
         }
     }
 }
