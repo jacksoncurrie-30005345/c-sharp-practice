@@ -9,30 +9,30 @@ namespace RoomEscape
     class Room
     {
         string name;
-        bool north;
-        bool south;
-        bool east;
-        bool west;
-        bool key;
-        bool end;
+        bool isNorth;
+        bool isSouth;
+        bool isEast;
+        bool isWest;
+        bool isKey;
+        bool isEnd;
 
         public string Name { get => name; set => name = value; }
-        public bool North { get => north; set => north = value; }
-        public bool South { get => south; set => south = value; }
-        public bool East { get => east; set => east = value; }
-        public bool West { get => west; set => west = value; }
-        public bool Key { get => key; set => key = value; }
-        public bool End { get => end; set => end = value; }
+        public bool IsNorth { get => isNorth; set => isNorth = value; }
+        public bool IsSouth { get => isSouth; set => isSouth = value; }
+        public bool IsEast { get => isEast; set => isEast = value; }
+        public bool IsWest { get => isWest; set => isWest = value; }
+        public bool IsKey { get => isKey; set => isKey = value; }
+        public bool IsEnd { get => isEnd; set => isEnd = value; }
 
-        public Room(string _name, bool _north, bool _south, bool _east, bool _west, bool _key, bool _end)
+        public Room(string _name, bool _isNorth, bool _isSouth, bool _isEast, bool _isWest)
         {
             Name = _name;
-            North = _north;
-            South = _south;
-            East = _east;
-            West = _west;
-            Key = _key;
-            End = _end;
+            IsNorth = _isNorth;
+            IsSouth = _isSouth;
+            IsEast = _isEast;
+            IsWest = _isWest;
+            IsKey = false;
+            IsEnd = false;
         }
     }
 }

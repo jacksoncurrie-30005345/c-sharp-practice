@@ -8,111 +8,130 @@ namespace RoomEscape
 {
     class Game
     {
-        static Room[,] rooms;
+        static Room[,] MAP = new Room[,]
+        {
+            {
+                new Room("Entrance", false, true, true, false),
+                new Room("Master Bedroom", false, false, false, true),
+                new Room("Bathroom", false, true, true, false),
+                new Room("Exit", false, false, false, true)
+            },
+            {
+                new Room("Library", true, false, true, false),
+                new Room("Store Room", false, true, false, true),
+                new Room("Janitor's Closet", true, false, true, false),
+                new Room("Staircase", false, true, false, true)
+            },
+            {
+                new Room("Child's Bedroom", false, true, true, false),
+                new Room("Shrine", true, false, true, true),
+                new Room("Hallway", false, false, true, true),
+                new Room("Conservatory", true, false, false, true)
+            },
+            {
+                new Room("Court Hall", true, false, true, false),
+                new Room("Treasure Room", false, false, true, true),
+                new Room("Labatory", false, false, true, true),
+                new Room("Garage", false, false, false, true)
+            }
+        };
+
         static Room currentRoom;
         static int xpos;
         static int ypos;
+        static int turns;
+        static bool hasKey;
+        bool finish;
 
-        static void Main(string[] args)
+        public bool Finish { get => finish; private set => finish = value; }
+
+        public Game()
         {
-            // Creating map
-
-            rooms = new Room[,]
-            {
-                {
-                    new Room("Entrance", false, true, true, false, false, false),
-                    new Room("Master Bedroom", false, false, false, true, false, false),
-                    new Room("Bathroom", false, true, true, false, false, false),
-                    new Room("Exit", false, false, false, true, false, true)
-                },
-                {
-                    new Room("Library", true, false, true, false, false, false),
-                    new Room("Store Room", false, true, false, true, false, false),
-                    new Room("Janitor Closet", true, false, true, false, false, false),
-                    new Room("Staircase", false, true, false, true, false, false)
-                },
-                {
-                    new Room("Child's Bedroom", false, true, true, false, false, false),
-                    new Room("Shrine", true, false, true, true, false, false),
-                    new Room("Hallway", false, false, true, true, false, false),
-                    new Room("Conservatory", true, false, false, true, false, false)
-                },
-                {
-                    new Room("Court Hall", true, false, true, false, false, false),
-                    new Room("Treasure Room", false, false, true, true, true, false),
-                    new Room("Labatory", false, false, true, true, false, false),
-                    new Room("Garage", false, false, false, true, false, false)
-                }
-            };
-
-            // Start of game instructions
-            Console.WriteLine("Start");
-
-            // Set Starting values
+            // Setting start values
+            MAP[0, 3].IsEnd = true;
+            MAP[3, 1].IsKey = true;
             xpos = 0;
             ypos = 0;
-            currentRoom = rooms[xpos, ypos];
-            bool hasKey = false;
-            char input;
-
-            // Loop until complete
-            do
-            {
-                // Display room infomation
-                DisplayRoom();
-
-                // Ask for direction of move
-                Console.Write("Enter direction: ");
-                input = Char.Parse(Console.ReadLine());
-
-                // Move to next room
-                ChangeRoom(input);
-
-                // Check for Key
-                hasKey = currentRoom.Key;
-                if(hasKey) Console.WriteLine("You have found the key");
-            }
-            while (!hasKey || !currentRoom.End);
-
-            // Display end of game information
-            Console.WriteLine("Finish");
+            currentRoom = MAP[ypos, xpos];
+            turns = 0;
+            hasKey = false;
+            Finish = false;
         }
 
-        static void ChangeRoom(char direction)
+        public void Move(char direction)
         {
+            Console.Clear();
+
+            // Add a turn
+            turns++;
+
             // Change by dirrection
-            if (direction == 'n' && currentRoom.North)
+            if (direction == 'N' && currentRoom.IsNorth)
                 ypos--;
 
-            else if (direction == 's' && currentRoom.South)
+            else if (direction == 'S' && currentRoom.IsSouth)
                 ypos++;
 
-            else if (direction == 'e' && currentRoom.East)
+            else if (direction == 'E' && currentRoom.IsEast)
                 xpos++;
 
-            else if (direction == 'w' && currentRoom.West)
+            else if (direction == 'W' && currentRoom.IsWest)
                 xpos--;
 
             // Not valid direction
             else
-                Console.WriteLine("You can't move that way");
+                Console.WriteLine("\nYou can't move that way.");
 
             // Set the new current Room
-            currentRoom = rooms[ypos, xpos];
+            currentRoom = MAP[ypos, xpos];
+
+            // Check for key
+            if (currentRoom.IsKey)
+            {
+                Console.WriteLine("\nYou have found the key!");
+                hasKey = true;
+                currentRoom.IsKey = false;
+            }
+
+            // Check for key
+            if (currentRoom.IsEnd && hasKey)
+            {
+                Console.WriteLine("\nYou have found the {0}!", currentRoom.Name);
+                Finish = true;
+            }
         }
 
-        static void DisplayRoom()
+        public void DisplayRoom()
         {
-            // Loop through array
-            for(int i = 0; i < 4; i++)
+            Console.WriteLine();
+
+            // Loop through map
+            for (int y = 0; y < MAP.GetLength(0); y++)
             {
-                for (int j = 0; j < 4; j++)
+                Console.Write("-------------\n|");
+                for (int x = 0; x < MAP.GetLength(1); x++)
                 {
                     // Add x when current room
-                    Console.Write("[{0}]", rooms[i, j] == currentRoom ? 'x' : ' ');
+                    Console.Write("{0} |", MAP[y, x] == currentRoom ? 'x' : ' ');
                 }
-                Console.Write('\n');
+                Console.WriteLine();
             }
+            Console.WriteLine("-------------\n");
+
+            // Name room
+            Console.WriteLine("You are in the {0}\n", currentRoom.Name);
+
+            // Display directions
+            if (currentRoom.IsNorth)
+                Console.WriteLine("You can travel North (N)");
+            if (currentRoom.IsSouth)
+                Console.WriteLine("You can travel South (S)");
+            if (currentRoom.IsEast)
+                Console.WriteLine("You can travel East (E)");
+            if (currentRoom.IsWest)
+                Console.WriteLine("You can travel West (W)");
+
+            Console.WriteLine();
         }
     }
 }
