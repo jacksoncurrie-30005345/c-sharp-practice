@@ -63,20 +63,29 @@ namespace RoomEscape
             Console.Clear();
 
             // Add a turn
-            turns++;
+
 
             // Change by dirrection
             if (direction == 'N' && currentRoom.IsNorth)
+            {
                 ypos--;
-
+                turns++;
+            }
             else if (direction == 'S' && currentRoom.IsSouth)
+            {
                 ypos++;
-
+                turns++;
+            }
             else if (direction == 'E' && currentRoom.IsEast)
+            {
                 xpos++;
-
+                turns++;
+            }
             else if (direction == 'W' && currentRoom.IsWest)
+            {
                 xpos--;
+                turns++;
+            }
 
             // Not valid direction
             else
@@ -97,6 +106,7 @@ namespace RoomEscape
             if (currentRoom.IsEnd && hasKey)
             {
                 Console.WriteLine("\nYou have found the {0}!", currentRoom.Name);
+                Console.WriteLine("\nNumber of moves: {0}", turns);
                 Finish = true;
             }
         }
@@ -120,6 +130,7 @@ namespace RoomEscape
 
             // Name room
             Console.WriteLine("You are in the {0}\n", currentRoom.Name);
+            Console.WriteLine("Number of moves: {0}\n", turns);
 
             // Display directions
             if (currentRoom.IsNorth)
