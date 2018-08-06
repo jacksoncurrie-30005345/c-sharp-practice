@@ -38,11 +38,19 @@ namespace GolfGame
                 DisplayHole();
                 
                 Console.Write("Enter power (1-100): ");
-                int power = Int32.Parse(Console.ReadLine());
+                bool input = Int32.TryParse(Console.ReadLine(), out int power);
+
+                if (!input)
+                    continue;
 
                 Console.Write("What Club (3, 5, 7, or 9 iron): ");
-                double club = 0.01;
-                switch (Int32.Parse(Console.ReadLine()))
+                double club;
+                input = Int32.TryParse(Console.ReadLine(), out int clubValue);
+
+                if (!input)
+                    continue;
+
+                switch (clubValue)
                 {
                     case 3:
                         club = 0.002;
@@ -59,6 +67,8 @@ namespace GolfGame
                     case 9:
                         club = 0.014;
                         break;
+                    default:
+                        continue;
                 }
 
                 shots++;
