@@ -81,7 +81,7 @@ namespace GolfGame
                 if (hasWon)
                     Console.Write("It took {0} shots.", shots);
 
-                Console.ReadLine();
+                Console.ReadKey();
 
             }
             while (!hasWon);
