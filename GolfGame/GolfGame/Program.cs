@@ -27,16 +27,16 @@ namespace GolfGame
 
             do
             {
-                
+
                 grid = new char[40, 121];
 
-                grid[37, hole-1] = '<';
+                grid[37, hole - 1] = '<';
                 grid[37, hole] = '|';
                 grid[38, hole] = '|';
                 grid[39, hole] = '|';
 
                 DisplayHole();
-                
+
                 Console.Write("Enter power (1-100): ");
                 bool input = Int32.TryParse(Console.ReadLine(), out int power);
 
@@ -78,7 +78,7 @@ namespace GolfGame
                 DisplayHole();
 
                 Console.Write(CheckLanding(hole));
-                if(hasWon)
+                if (hasWon)
                     Console.Write("It took {0} shots.", shots);
 
                 Console.ReadLine();
@@ -117,7 +117,7 @@ namespace GolfGame
                         return "Too far\n\nNext Shot?";
 
                     else if (i < hole)
-                        return "Too short\n\nNext Shot?";      
+                        return "Too short\n\nNext Shot?";
 
             return "Out of bounds\n\nNext Shot?";
         }
@@ -133,4 +133,3 @@ namespace GolfGame
         }
     }
 }
-
