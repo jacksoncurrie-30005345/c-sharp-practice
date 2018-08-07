@@ -16,11 +16,11 @@ namespace RoomEscape
         bool isKey;
         bool isEnd;
 
-        public string Name { get => name; set => name = value; }
-        public bool IsNorth { get => isNorth; set => isNorth = value; }
-        public bool IsSouth { get => isSouth; set => isSouth = value; }
-        public bool IsEast { get => isEast; set => isEast = value; }
-        public bool IsWest { get => isWest; set => isWest = value; }
+        public string Name { get => name; private set => name = value; }
+        public bool IsNorth { get => isNorth; private set => isNorth = value; }
+        public bool IsSouth { get => isSouth; private set => isSouth = value; }
+        public bool IsEast { get => isEast; private set => isEast = value; }
+        public bool IsWest { get => isWest; private set => isWest = value; }
         public bool IsKey { get => isKey; set => isKey = value; }
         public bool IsEnd { get => isEnd; set => isEnd = value; }
 
