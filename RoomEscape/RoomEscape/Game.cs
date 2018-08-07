@@ -118,15 +118,16 @@ namespace RoomEscape
             // Loop through map
             for (int y = 0; y < MAP.GetLength(0); y++)
             {
-                Console.Write("-------------\n|");
+                Console.Write("-------------------------\n|     |     |     |     |\n|");
                 for (int x = 0; x < MAP.GetLength(1); x++)
                 {
                     // Add x when current room
-                    Console.Write("{0} |", MAP[y, x] == currentRoom ? 'x' : ' ');
+                    Console.Write("  {0}  |", MAP[y, x] == currentRoom ? 'X' : ' ');
                 }
-                Console.WriteLine();
+                Console.WriteLine("\n|     |     |     |     |");
             }
-            Console.WriteLine("-------------\n");
+            
+            Console.WriteLine("-------------------------\n");
 
             // Name room
             Console.WriteLine("You are in the {0}\n", currentRoom.Name);
