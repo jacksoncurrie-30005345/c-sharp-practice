@@ -62,9 +62,6 @@ namespace RoomEscape
         {
             Console.Clear();
 
-            // Add a turn
-
-
             // Change by dirrection
             if (direction == 'N' && currentRoom.IsNorth)
             {
@@ -87,17 +84,19 @@ namespace RoomEscape
                 turns++;
             }
 
-            // Not valid direction
-            else
-                Console.WriteLine("\nYou can't move that way.");
-
             // Set the new current Room
             currentRoom = MAP[ypos, xpos];
 
             // Check for key
             if (currentRoom.IsKey)
             {
-                Console.WriteLine("\nYou have found the key!");
+                Console.WriteLine("\n=======================");
+                Console.WriteLine("You have found the key!");
+                Console.WriteLine("=======================");
+                Console.Write("\nPress any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
+
                 hasKey = true;
                 currentRoom.IsKey = false;
             }
@@ -105,8 +104,9 @@ namespace RoomEscape
             // Check for key
             if (currentRoom.IsEnd && hasKey)
             {
-                Console.WriteLine("\nYou have found the {0}!", currentRoom.Name);
-                Console.WriteLine("\nNumber of moves: {0}", turns);
+                Console.WriteLine("\n========================");
+                Console.WriteLine("You have found the Exit!");
+                Console.WriteLine("========================");
                 Finish = true;
             }
         }
@@ -135,13 +135,13 @@ namespace RoomEscape
 
             // Display directions
             if (currentRoom.IsNorth)
-                Console.WriteLine("You can travel North (N)");
+                Console.WriteLine("You can travel Up");
             if (currentRoom.IsSouth)
-                Console.WriteLine("You can travel South (S)");
+                Console.WriteLine("You can travel Down");
             if (currentRoom.IsEast)
-                Console.WriteLine("You can travel East (E)");
+                Console.WriteLine("You can travel Right");
             if (currentRoom.IsWest)
-                Console.WriteLine("You can travel West (W)");
+                Console.WriteLine("You can travel Left");
 
             Console.WriteLine();
         }
