@@ -53,36 +53,41 @@ namespace GolfGame
                     continue;
 
                 // Get club input
-                Console.Write("What Club (3, 5, 7, or 9 iron): ");
+                Console.Write("Choose Club (3, 5, 7, or 9 iron)");
                 ConsoleKeyInfo key = Console.ReadKey(true);
 
                 // Set club value
                 double club;
                 switch (key.Key)
                 {
+                    // Number 3
                     case ConsoleKey.NumPad3:
                     case ConsoleKey.D3:
                         club = 0.002;
                         power += 30;
                         break;
 
+                    // Number 5
                     case ConsoleKey.NumPad5:
                     case ConsoleKey.D5:
                         club = 0.006;
                         power += 20;
                         break;
 
+                    // Number 7
                     case ConsoleKey.NumPad7:
                     case ConsoleKey.D7:
                         club = 0.01;
                         power += 10;
                         break;
 
+                    // Number 9
                     case ConsoleKey.NumPad9:
                     case ConsoleKey.D9:
                         club = 0.014;
                         break;
 
+                    // Other value
                     default:
                         continue;
                 }
