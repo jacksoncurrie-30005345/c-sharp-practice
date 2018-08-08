@@ -13,7 +13,7 @@ namespace RoomEscape
             // Game instructions
             Console.WriteLine("\nWelcome to Room Escape!");
             Console.WriteLine("-----------------------");
-            Console.WriteLine("\nTo Play this game use the arrow keys to move or escpae to exit.");
+            Console.WriteLine("\nTo play this game use the arrow keys to move or escpae to exit.");
             Console.WriteLine("You must find the key before you make it to the exit to win the game.");
             Console.Write("\nPress any key to start...");
             Console.ReadKey();

@@ -101,12 +101,13 @@ namespace RoomEscape
                 currentRoom.IsKey = false;
             }
 
-            // Check for key
+            // Check for exit
             if (currentRoom.IsEnd && hasKey)
             {
                 Console.WriteLine("\n========================");
                 Console.WriteLine("You have found the Exit!");
-                Console.WriteLine("========================");
+                Console.WriteLine("========================\n");
+                Console.WriteLine("It took {0} moves", turns);
                 Finish = true;
             }
         }
