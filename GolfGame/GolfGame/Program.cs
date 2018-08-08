@@ -22,8 +22,6 @@ namespace GolfGame
             Console.WindowHeight = 46;
             Console.BufferWidth = 121;
             Console.WindowWidth = 122;
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
 
             do
             {
@@ -99,7 +97,9 @@ namespace GolfGame
                 Console.WriteLine();
             }
 
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         static string CheckLanding(int hole)
@@ -129,6 +129,33 @@ namespace GolfGame
                 int y = Convert.ToInt32(Math.Round((club * x * (x - power) + 39), 0));
                 if (y <= 39 && y > 0)
                     grid[y, x] = '*';
+            }
+
+            bool start = false;
+            
+
+            for (int y = 0; y < 40; y++)
+            {
+                int check = 0;
+
+                for (int x = 0; x < 120; x++)
+                    if (grid[y, x] == '*')
+                    {
+                        start = true;
+                        check++;
+                    }
+
+                if (check == 0 && start)
+                {
+                    int xValue1 = Convert.ToInt32(Math.Round((0.5 * power) + Math.Sqrt((y + (0.25 * club * power * power) - 39) / club), 0));
+                    int xValue2 = Convert.ToInt32(Math.Round((0.5 * power) - Math.Sqrt((y + (0.25 * club * power * power) - 39) / club), 0));
+
+                    if (xValue1 >= 0 && xValue1 <= 120)
+                        grid[y, xValue1] = '*';
+
+                    if (xValue2 >= 0 && xValue2 <= 120)
+                        grid[y, xValue2] = '*';
+                }
             }
         }
     }
