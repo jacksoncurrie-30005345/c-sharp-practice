@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RoomEscape
 {
@@ -13,8 +9,8 @@ namespace RoomEscape
             // Game instructions
             Console.WriteLine("\nWelcome to Room Escape!");
             Console.WriteLine("-----------------------");
-            Console.WriteLine("\nTo play this game use the arrow keys to move or escpae to exit.");
-            Console.WriteLine("You must find the key before you make it to the exit to win the game.");
+            Console.WriteLine("\nTo play this game use the arrow keys to move. You can press the [Esc] button to exit.");
+            Console.WriteLine("You must find the key before you go to the exit and win the game.");
             Console.Write("\nPress any key to start...");
             Console.ReadKey();
             Console.Clear();
