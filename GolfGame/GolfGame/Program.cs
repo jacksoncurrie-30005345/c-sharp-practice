@@ -48,30 +48,41 @@ namespace GolfGame
                 if (!Int32.TryParse(Console.ReadLine(), out int power))
                     continue;
 
+                // Power in range
+                if (power < 1 || power > 100)
+                    continue;
+
                 // Get club input
                 Console.Write("What Club (3, 5, 7, or 9 iron): ");
-                if (!Int32.TryParse(Console.ReadLine(), out int clubValue))
-                    continue;
+                ConsoleKeyInfo key = Console.ReadKey(true);
 
                 // Set club value
                 double club;
-                switch (clubValue)
+                switch (key.Key)
                 {
-                    case 3:
+                    case ConsoleKey.NumPad3:
+                    case ConsoleKey.D3:
                         club = 0.002;
                         power += 30;
                         break;
-                    case 5:
+
+                    case ConsoleKey.NumPad5:
+                    case ConsoleKey.D5:
                         club = 0.006;
                         power += 20;
                         break;
-                    case 7:
+
+                    case ConsoleKey.NumPad7:
+                    case ConsoleKey.D7:
                         club = 0.01;
                         power += 10;
                         break;
-                    case 9:
+
+                    case ConsoleKey.NumPad9:
+                    case ConsoleKey.D9:
                         club = 0.014;
                         break;
+
                     default:
                         continue;
                 }
