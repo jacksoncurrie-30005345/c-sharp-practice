@@ -12,13 +12,16 @@ namespace Menu
         {
             ConsoleKeyInfo key;
 
+            // Loop until exit
             do
             {
+                // Output menu
                 Console.Clear();
                 Console.WriteLine("\nJackson Currie - 5212 Assignment 1");
                 Console.WriteLine("----------------------------------\n");
 
                 Console.Write("Question 1 [1]\n" +
+                              "Question 2 [2]\n" +
                               "Question 3 [3]\n" +
                               "Question 4 [4]\n" +
                               "Question 5 [5]\n" +
@@ -26,10 +29,13 @@ namespace Menu
                               "Choose Question..."
                 );
 
+                // Get input
                 key = Console.ReadKey(true);
 
+                // Check input
                 switch (key.Key)
                 {
+                    // 1
                     case ConsoleKey.D1:
                     case ConsoleKey.NumPad1:
                         Console.Clear();
@@ -38,6 +44,16 @@ namespace Menu
                         Question1.Program.Main();
                         break;
 
+                    // 2
+                    case ConsoleKey.D2:
+                    case ConsoleKey.NumPad2:
+                        Console.Clear();
+                        Console.WriteLine("\nQuestion 2");
+                        Console.WriteLine("----------\n");
+                        Question2.Program.Main();
+                        break;
+
+                    // 3
                     case ConsoleKey.D3:
                     case ConsoleKey.NumPad3:
                         Console.Clear();
@@ -45,7 +61,8 @@ namespace Menu
                         Console.WriteLine("----------\n");
                         Question3.Program.Main();
                         break;
-
+                    
+                    // 4
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
                         Console.Clear();
@@ -54,13 +71,16 @@ namespace Menu
                         Question4.Program.Main();
                         break;
 
+                    // 5
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
                         Console.Clear();
                         Console.WriteLine("\nQuestion 5");
                         Console.WriteLine("----------\n");
+                        Question5.Program.Main();
                         break;
 
+                    // Esc
                     case ConsoleKey.Escape:
                         Console.Clear();
                         Console.WriteLine("\nGoodbye");
@@ -69,12 +89,14 @@ namespace Menu
                         Console.ReadKey();
                         return;
 
+                    // Invalid input
                     default:
                         Console.Clear();
                         Console.WriteLine("\nNot a valid input\n");
                         break;
                 }
 
+                // When complete
                 Console.Write("Press any key to continue...");
                 Console.ReadKey();
             }

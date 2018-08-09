@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Question4
+namespace Question5
 {
     class Person
     {
@@ -21,7 +21,6 @@ namespace Question4
         // Constructor
         public Person(string firstName, string lastName)
         {
-            Console.WriteLine("\nCreating new person record...\n");
             FirstName = firstName;
             LastName = lastName;
         }

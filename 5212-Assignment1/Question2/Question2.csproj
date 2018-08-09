@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D2B79452-4D75-41E0-A922-2A9E18FCEDE8}</ProjectGuid>
+    <ProjectGuid>{20E2A3A9-0139-45CB-B337-544924E6E3E0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_5212_Assignment1</RootNamespace>
-    <AssemblyName>5212-Assignment1</AssemblyName>
+    <RootNamespace>Question2</RootNamespace>
+    <AssemblyName>Question2</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,33 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Menu.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Question1\Question1.csproj">
-      <Project>{abd83b9a-42a5-4c88-a9cc-b1f657a4c842}</Project>
-      <Name>Question1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Question2\Question2.csproj">
-      <Project>{20e2a3a9-0139-45cb-b337-544924e6e3e0}</Project>
-      <Name>Question2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Question3\Question3.csproj">
-      <Project>{6ea7e534-d6b4-415f-bcba-40a012dccef6}</Project>
-      <Name>Question3</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Question4\Question4.csproj">
-      <Project>{66b58ab3-0e69-4a94-bc82-f32b4ba534f8}</Project>
-      <Name>Question4</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Question5\Question5.csproj">
-      <Project>{23af6f4f-030a-4f60-ab1a-dcf4b327e431}</Project>
-      <Name>Question5</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

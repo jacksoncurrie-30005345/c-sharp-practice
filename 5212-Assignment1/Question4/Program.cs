@@ -26,7 +26,6 @@ namespace Question4
                 string lastname = Console.ReadLine();
 
                 // Creat record
-                Console.WriteLine("\nCreating new person record...\n");
                 Person user = new Person(firstname, lastname);
 
                 // Check results
