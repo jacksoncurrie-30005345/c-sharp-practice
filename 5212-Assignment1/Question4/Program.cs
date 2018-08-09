@@ -10,10 +10,11 @@ namespace Question4
     {
         public static void Main()
         {
+            // List of people
+            List<Person> people = new List<Person>();
+
             bool exit = false;
 
-            // List of people
-            List<Person> people = new List<Person>(); 
             do
             {
                 // Output information
