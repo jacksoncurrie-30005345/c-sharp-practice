@@ -49,8 +49,8 @@ namespace Question4
                 // Add person to list
                 people.Add(user);
 
-                Console.WriteLine("\nPeople:");
                 // Output results
+                Console.WriteLine("\nPeople:");   
                 foreach(Person person in people)
                     Console.WriteLine("{0} is {1} years old.", person.GetFullName(), person.GetAge());
 
