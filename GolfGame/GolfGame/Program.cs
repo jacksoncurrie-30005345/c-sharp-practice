@@ -14,102 +14,140 @@ namespace GolfGame
 
         static void Main(string[] args)
         {
-            // New random number
-            Random rnd = new Random();
-            int hole = rnd.Next(50, 120);
-            int shots = 0;
-
-            // New Game
-            hasWon = false;
-
             // Set height of console
             Console.BufferHeight = 45;
             Console.WindowHeight = 46;
             Console.BufferWidth = 121;
             Console.WindowWidth = 122;
 
-            // Loop until won
+            ConsoleKeyInfo key;
+            bool playAgain = true;
+
             do
             {
-                // Reset Hole
-                grid = new char[40, 121];
+                // New random number
+                Random rnd = new Random();
+                int hole = rnd.Next(50, 120);
+                int shots = 0;
 
-                // Set flag
-                grid[37, hole - 1] = '<';
-                grid[37, hole] = '|';
-                grid[38, hole] = '|';
-                grid[39, hole] = '|';
+                // New Game
+                hasWon = false;
 
-                // Output hole
-                DisplayHole();
-
-                // Get power input
-                Console.Write("Enter power (1-100): ");
-                if (!Int32.TryParse(Console.ReadLine(), out int power))
-                    continue;
-
-                // Power in range
-                if (power < 1 || power > 100)
-                    continue;
-
-                // Get club input
-                Console.Write("Choose Club (3, 5, 7, or 9 iron)");
-                ConsoleKeyInfo key = Console.ReadKey(true);
-
-                // Set club value
-                double club;
-                switch (key.Key)
+                // Loop until won
+                do
                 {
-                    // Number 3
-                    case ConsoleKey.NumPad3:
-                    case ConsoleKey.D3:
-                        club = 0.002;
-                        power += 30;
-                        break;
+                    // Reset Hole
+                    grid = new char[40, 121];
 
-                    // Number 5
-                    case ConsoleKey.NumPad5:
-                    case ConsoleKey.D5:
-                        club = 0.006;
-                        power += 20;
-                        break;
+                    // Set flag
+                    grid[37, hole - 1] = '<';
+                    grid[37, hole] = '|';
+                    grid[38, hole] = '|';
+                    grid[39, hole] = '|';
 
-                    // Number 7
-                    case ConsoleKey.NumPad7:
-                    case ConsoleKey.D7:
-                        club = 0.01;
-                        power += 10;
-                        break;
+                    // Output hole
+                    DisplayHole();
 
-                    // Number 9
-                    case ConsoleKey.NumPad9:
-                    case ConsoleKey.D9:
-                        club = 0.014;
-                        break;
-
-                    // Other value
-                    default:
+                    // Get power input
+                    Console.Write("Enter power (1-100): ");
+                    if (!Int32.TryParse(Console.ReadLine(), out int power))
                         continue;
+
+                    // Power in range
+                    if (power < 1 || power > 100)
+                        continue;
+
+                    // Get club input
+                    Console.Write("Choose Club (3, 5, 7, or 9 iron)");
+                    key = Console.ReadKey(true);
+
+                    // Set club value
+                    double club;
+                    switch (key.Key)
+                    {
+                        // Number 3
+                        case ConsoleKey.NumPad3:
+                        case ConsoleKey.D3:
+                            club = 0.002;
+                            power += 30;
+                            break;
+
+                        // Number 5
+                        case ConsoleKey.NumPad5:
+                        case ConsoleKey.D5:
+                            club = 0.006;
+                            power += 20;
+                            break;
+
+                        // Number 7
+                        case ConsoleKey.NumPad7:
+                        case ConsoleKey.D7:
+                            club = 0.01;
+                            power += 10;
+                            break;
+
+                        // Number 9
+                        case ConsoleKey.NumPad9:
+                        case ConsoleKey.D9:
+                            club = 0.014;
+                            break;
+
+                        // Other value
+                        default:
+                            continue;
+                    }
+
+                    // Add shot
+                    shots++;
+
+                    // Draw path
+                    Path(club, power);
+
+                    // Redraw hole
+                    DisplayHole();
+
+                    // Check for win
+                    Console.Write(CheckLanding(hole));
+                    if (hasWon)
+                        Console.Write("It took {0} shots.", shots);
+
+                    // Wait for input
+                    Console.ReadKey();
                 }
+                while (!hasWon);
 
-                // Add shot
-                shots++;
+                Console.Clear();
 
-                // Draw path
-                Path(club, power);
+                do
+                {
+                    // Get input
+                    Console.Write("\nDo you want to play again? [Y]/[N]");
+                    key = Console.ReadKey(true);
 
-                // Redraw hole
-                DisplayHole();
+                    // Check key
+                    switch (key.Key)
+                    {
+                        // Y
+                        case ConsoleKey.Y:
+                            playAgain = true;
+                            break;
 
-                // Check for win
-                Console.Write(CheckLanding(hole));
-                if (hasWon)
-                    Console.Write("It took {0} shots.", shots);
+                        // N
+                        case ConsoleKey.N:
+                            playAgain = false;
+                            break;
 
-                // Wait for input
-                Console.ReadKey();
+                        // Wrong input
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\nThat is not an option.");
+                            break;
+                    }
+                }
+                while (key.Key != ConsoleKey.N && key.Key != ConsoleKey.Y);
+                
             }
-            while (!hasWon);
+            while (playAgain);
         }
 
         static void DisplayHole()
@@ -155,7 +193,7 @@ namespace GolfGame
 
         static void Path(double club, int power)
         {
-            // Loop through array
+            // Loop through x array
             for (int x = 0; x < 121; x++)
             {
                 // Work out y values
@@ -165,7 +203,7 @@ namespace GolfGame
                     grid[y, x] = '*';
             }           
 
-            // Loop through aray
+            // Loop through y array
             for (int y = 0; y < 40; y++)
 
                 // Check if valid
