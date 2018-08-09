@@ -12,6 +12,8 @@ namespace Question4
         {
             bool exit = false;
 
+            // List of people
+            List<Person> people = new List<Person>(); 
             do
             {
                 // Output information
@@ -44,8 +46,13 @@ namespace Question4
                 }
                 while (!check && input <= DateTime.Now.Year);
 
-                // Output result
-                Console.WriteLine("\nPerson: {0} is {1} years old.\n", user.GetFullName(), user.GetAge());
+                // Add person to list
+                people.Add(user);
+
+                Console.WriteLine("\nPeople:");
+                // Output results
+                foreach(Person person in people)
+                    Console.WriteLine("{0} is {1} years old.", person.GetFullName(), person.GetAge());
 
                 // Check value
                 ConsoleKeyInfo key;
@@ -53,7 +60,7 @@ namespace Question4
                 do
                 {
                     // Get input
-                    Console.Write("Do you want to enter another person? [Y]/[N]");
+                    Console.Write("\nDo you want to enter another person? [Y]/[N]");
                     key = Console.ReadKey(true);
 
                     // Check key
