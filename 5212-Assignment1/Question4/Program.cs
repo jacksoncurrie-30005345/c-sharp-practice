@@ -17,6 +17,9 @@ namespace Question4
 
             do
             {
+                Console.Clear();
+                Console.WriteLine("\nQuestion 2\n----------\n");
+
                 // Output information
                 Console.WriteLine("Enter name of new person below.\n");
 

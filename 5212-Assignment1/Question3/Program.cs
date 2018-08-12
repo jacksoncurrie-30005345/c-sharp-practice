@@ -10,26 +10,26 @@ namespace Question3
     {
         public static void Main()
         {
+            // New car
+            Car usersCar = new Car();
+
             // Car details
             Console.WriteLine("Enter car details below");
 
             // Set Colour
             Console.Write("\nEnter car's colour: ");
-            string colour = Console.ReadLine();
+            usersCar.Colour = Console.ReadLine();
 
             // Set Make
             Console.Write("Enter car's make: ");
-            string make = Console.ReadLine();
+            usersCar.Make = Console.ReadLine();
 
             // Set Gearbox
             Console.Write("Enter car's gearbox: ");
-            string gearbox = Console.ReadLine();
-
-            // New car
-            Car usersCar = new Car(colour, make, gearbox);
+            usersCar.Gearbox = Console.ReadLine();
 
             // Output result
-            Console.WriteLine("\nThis car is a {0} {1} with a {2} transmission.\n", usersCar.GetColour(), usersCar.GetMake(), usersCar.GetGearbox());
+            Console.WriteLine("\nThis car is a {0} {1} with a {2} transmission.\n", usersCar.Colour, usersCar.Make, usersCar.Gearbox);
         }
     }
 }

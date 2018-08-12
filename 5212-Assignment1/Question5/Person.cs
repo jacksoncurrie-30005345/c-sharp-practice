@@ -8,19 +8,15 @@ namespace Question5
 {
     class Person
     {
-        // Properties
-        string _firstName;
-        string _lastName;
-        int _yearOfBirth;
-
-        // Geting and setting properties
-        public string FirstName { get => _firstName; private set => _firstName = value; }
-        public string LastName { get => _lastName; private set => _lastName = value; }
-        public int YearOfBirth { get => _yearOfBirth; set => _yearOfBirth = value; }
+        // Auto implemented properties
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int YearOfBirth { get; set; }
 
         // Constructor
         public Person(string firstName, string lastName)
         {
+            Console.WriteLine("\nCreating new person record...\n");
             FirstName = firstName;
             LastName = lastName;
         }

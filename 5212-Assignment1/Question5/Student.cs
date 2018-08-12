@@ -8,18 +8,13 @@ namespace Question5
 {
     class Student : Person
     {
-        // Properties
-        string _campus;
-        int _studentID;
-
-        // Getting and setting properties
-        public string Campus { get => _campus; private set => _campus = value; }
-        public int StudentID { get => _studentID; set => _studentID = value; }
+        // Auto implementing properties
+        public string Campus { get; set; }
+        public int StudentID { get; set; }
 
         // Constructor
         public Student(string firstName, string lastName, string campus) : base(firstName, lastName)
         {
-            Console.WriteLine("\nCreating new person record...\n");
             Console.WriteLine("Enrolling student at {0} campus...", campus);
             Campus = campus;
         }

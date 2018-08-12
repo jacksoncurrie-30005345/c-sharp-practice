@@ -39,8 +39,7 @@ namespace Menu
                     case ConsoleKey.D1:
                     case ConsoleKey.NumPad1:
                         Console.Clear();
-                        Console.WriteLine("\nQuestion 1");
-                        Console.WriteLine("----------\n");
+                        Console.WriteLine("\nQuestion 1\n----------\n");
                         Question1.Program.Main();
                         break;
 
@@ -48,8 +47,7 @@ namespace Menu
                     case ConsoleKey.D2:
                     case ConsoleKey.NumPad2:
                         Console.Clear();
-                        Console.WriteLine("\nQuestion 2");
-                        Console.WriteLine("----------\n");
+                        Console.WriteLine("\nQuestion 2\n----------\n");
                         Question2.Program.Main();
                         break;
 
@@ -57,8 +55,7 @@ namespace Menu
                     case ConsoleKey.D3:
                     case ConsoleKey.NumPad3:
                         Console.Clear();
-                        Console.WriteLine("\nQuestion 3");
-                        Console.WriteLine("----------\n");
+                        Console.WriteLine("\nQuestion 3\n----------\n");
                         Question3.Program.Main();
                         break;
                     
@@ -66,8 +63,7 @@ namespace Menu
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
                         Console.Clear();
-                        Console.WriteLine("\nQuestion 4");
-                        Console.WriteLine("----------\n");
+                        Console.WriteLine("\nQuestion 4\n----------\n");
                         Question4.Program.Main();
                         break;
 
@@ -75,17 +71,14 @@ namespace Menu
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
                         Console.Clear();
-                        Console.WriteLine("\nQuestion 5");
-                        Console.WriteLine("----------\n");
+                        Console.WriteLine("\nQuestion 5\n----------\n");
                         Question5.Program.Main();
                         break;
 
                     // Esc
                     case ConsoleKey.Escape:
                         Console.Clear();
-                        Console.WriteLine("\nGoodbye");
-                        Console.WriteLine("-------\n");
-                        Console.Write("Press any key to exit...");
+                        Console.Write("\nGoodbye\n-------\n\nPress any key to exit...");
                         Console.ReadKey();
                         return;
 
