@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* 
+ * Author      : Jackson Currie - 30005345
+ * Date        : 2018-08-16
+ * Description : Main program for Question 1.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +33,7 @@ namespace Question1
             usersCar.SetGearbox(Console.ReadLine());
 
             // Output result
-            Console.WriteLine("\nThis car is a {0} {1} with a {2} transmission.\n", usersCar.GetColour(), usersCar.GetMake(), usersCar.GetGearbox());
+            Console.WriteLine("\nThis car is a {0} {1} with {2} transmission.\n", usersCar.GetColour(), usersCar.GetMake(), usersCar.GetGearbox());
         }
     }
 }

@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* 
+ * Author      : Jackson Currie - 30005345
+ * Date        : 2018-08-16
+ * Description : Person class for Question 4.
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
