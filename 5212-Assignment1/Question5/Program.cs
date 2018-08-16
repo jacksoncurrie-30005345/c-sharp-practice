@@ -36,7 +36,13 @@ namespace Question5
             user.StudentID = user.EnrollStudent();
 
             // Output result
-            Console.WriteLine("\n{0} of {1} campus has a student ID of {2}.\n", user.GetFullName(), user.Campus, user.StudentID);
+            Console.WriteLine
+            (
+                "\n{0} of {1} campus has a student ID of {2}.\n",
+                user.GetFullName(),
+                user.Campus,
+                user.StudentID
+            );
         }
     }
 }
