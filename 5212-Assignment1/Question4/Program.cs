@@ -24,7 +24,12 @@ namespace Question4
             do
             {
                 Console.Clear();
-                Console.WriteLine("\nQuestion 2\n----------\n");
+                Console.WriteLine
+                (
+                    "\n" +
+                    "Question 2\n" +
+                    "----------\n"
+                );
 
                 // Output information
                 Console.WriteLine("Enter name of new person below.\n");
@@ -49,12 +54,14 @@ namespace Question4
                     // Get year of birth
                     Console.Write("Enter year of birth: ");
                     check = Int32.TryParse(Console.ReadLine(), out input);
+
+                    // Check input
                     if (check && input <= DateTime.Now.Year)
                         user.YearOfBirth = input;
                     else
                         Console.WriteLine("\nThat is not a valid year.\n");
                 }
-                while (!check && input <= DateTime.Now.Year);
+                while (!check || input > DateTime.Now.Year);
 
                 // Add person to list
                 people.Add(user);
@@ -62,7 +69,12 @@ namespace Question4
                 // Output results
                 Console.WriteLine("\nPeople:");   
                 foreach(Person person in people)
-                    Console.WriteLine("{0} is {1} years old.", person.GetFullName(), person.GetAge());
+                    Console.WriteLine
+                    (
+                        "{0} is {1} years old.",
+                        person.GetFullName(),
+                        person.GetAge()
+                    );
 
                 // Check value
                 ConsoleKeyInfo key;

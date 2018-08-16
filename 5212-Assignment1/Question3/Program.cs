@@ -35,7 +35,13 @@ namespace Question3
             usersCar.Gearbox = Console.ReadLine();
 
             // Output result
-            Console.WriteLine("\nThis car is a {0} {1} with {2} transmission.\n", usersCar.Colour, usersCar.Make, usersCar.Gearbox);
+            Console.WriteLine
+            (
+                "\nThis car is a {0} {1} with {2} transmission.\n",
+                usersCar.Colour,
+                usersCar.Make,
+                usersCar.Gearbox
+            );
         }
     }
 }
