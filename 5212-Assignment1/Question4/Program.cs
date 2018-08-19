@@ -27,7 +27,7 @@ namespace Question4
                 Console.WriteLine
                 (
                     "\n" +
-                    "Question 2\n" +
+                    "Question 4\n" +
                     "----------\n"
                 );
 
@@ -99,7 +99,7 @@ namespace Question4
 
                         // Wrong input
                         default:
-                            Console.WriteLine("\n\nThat is not an option.\n");
+                            Console.WriteLine("\n\nThat is not an option.");
                             break;
                     }
                 }
