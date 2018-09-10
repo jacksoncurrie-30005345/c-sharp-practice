@@ -10,19 +10,17 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            int[] nums = new int[10000];
+            int[] nums = new int[1000];
             Random random = new Random();
 
             for(int index = 0; index < nums.Length; index++)
-                nums[index] = random.Next(10000, 99999);
+                nums[index] = random.Next(1, 101);
 
             Dictionary<int, int> occurances = Frequency(nums);
+            var ordered = occurances.OrderBy(x => x.Value);
 
-            foreach(KeyValuePair<int, int> value in occurances)
-            {
-                if(value.Value > 1)
-                    Console.WriteLine("{0} : {1}", value.Key, value.Value);
-            }
+            foreach (KeyValuePair<int, int> value in ordered)
+                Console.WriteLine("{0,3} : {1,2}", value.Key, value.Value);
 
             Console.ReadKey();
 
@@ -37,12 +35,12 @@ namespace Task2
                     frequency.Add(value, 0);
             }
 
-            foreach (int x in nums)
+            foreach (int value in frequency.Keys.ToList())
             {
                 foreach (int y in nums)
                 {
-                    if (x == y)
-                        frequency[x]++;
+                    if (value == y)
+                        frequency[value]++;
                 }
             }
 
