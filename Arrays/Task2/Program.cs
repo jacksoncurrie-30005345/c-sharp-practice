@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             int[] nums = new int[1000];
             Random random = new Random();
@@ -21,28 +21,20 @@ namespace Task2
 
             foreach (KeyValuePair<int, int> value in ordered)
                 Console.WriteLine("{0,3} : {1,2}", value.Key, value.Value);
-
-            Console.ReadKey();
-
         }
 
         static Dictionary<int, int> Frequency(int[] nums)
         {
             Dictionary<int, int> frequency = new Dictionary<int, int>();
+
             foreach (int value in nums)
-            {
                 if (!frequency.ContainsKey(value))
                     frequency.Add(value, 0);
-            }
 
             foreach (int value in frequency.Keys.ToList())
-            {
                 foreach (int y in nums)
-                {
                     if (value == y)
                         frequency[value]++;
-                }
-            }
 
             return frequency;
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task3
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             Random random = new Random();
             int[] nums = new int[100];
@@ -30,10 +30,10 @@ namespace Task3
                 while (check);
             }
 
+            Array.Sort(nums);
+
             foreach(int value in nums)
                 Console.WriteLine(value);
-
-            Console.ReadKey();
         }
     }
 }

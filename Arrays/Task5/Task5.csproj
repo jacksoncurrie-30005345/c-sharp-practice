@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6FFEEF55-896E-4627-BEE8-7644D099DFAE}</ProjectGuid>
+    <ProjectGuid>{50A39586-9D55-4508-97C4-60788B438921}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Arrays</RootNamespace>
-    <AssemblyName>Arrays</AssemblyName>
+    <RootNamespace>Task5</RootNamespace>
+    <AssemblyName>Task5</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,37 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Task1\Task1.csproj">
-      <Project>{c46a311f-4a4c-4d21-82a4-8744eb429137}</Project>
-      <Name>Task1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task2\Task2.csproj">
-      <Project>{2188c6a9-68fa-4a8c-ac93-533106583a1f}</Project>
-      <Name>Task2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task3\Task3.csproj">
-      <Project>{3aa3cbb2-b372-4a2e-a6b6-690b29477e6a}</Project>
-      <Name>Task3</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task4\Task4.csproj">
-      <Project>{af8a1c9d-65e5-40c7-aff6-5dc68b51a04c}</Project>
-      <Name>Task4</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task5\Task5.csproj">
-      <Project>{50a39586-9d55-4508-97c4-60788b438921}</Project>
-      <Name>Task5</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Task6\Task6.csproj">
-      <Project>{0941b061-3bde-45a1-b7d5-c8345829221e}</Project>
-      <Name>Task6</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

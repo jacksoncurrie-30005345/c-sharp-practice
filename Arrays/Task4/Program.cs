@@ -6,32 +6,15 @@ using System.Threading.Tasks;
 
 namespace Task4
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             Random random = new Random();
             int[] nums = new int[1000];
 
             for (int i = 0; i < 1000; i++)
                 nums[i] = random.Next(1, 1000);
-
-            //for (int index = 1; index < nums.Length; index++)
-            //{
-            //    int num;
-            //    bool check = true;
-            //    do
-            //    {
-            //        num = random.Next(1, 1000);
-            //        if (!nums.Contains(num))
-            //        {
-            //            nums[index] = num;
-            //            check = false;
-            //        }
-
-            //    }
-            //    while (check);
-            //}
 
             for (int i = 0; i < Math.Ceiling(Convert.ToDouble(nums.Length) / 10); i++)
             {
@@ -42,7 +25,7 @@ namespace Task4
                 Console.WriteLine('\n');
             }
 
-            Console.Write("Press any key to order...");
+            Console.Write("\nPress any key to order...");
             Console.ReadKey();
             Console.Clear();
 
@@ -72,8 +55,6 @@ namespace Task4
                 }
                 Console.WriteLine('\n');
             }
-
-            Console.ReadKey();
         }
     }
 }

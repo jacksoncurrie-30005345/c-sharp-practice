@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             int[] nums = new int[10];
 
@@ -23,8 +23,7 @@ namespace Task1
             foreach (int num in nums)
                 Console.Write(num + " ");
 
-            Console.Write("\n\nPress any key to continue...");
-            Console.ReadKey();
+            Console.WriteLine();
         }
     }
 }
