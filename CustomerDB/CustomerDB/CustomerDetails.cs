@@ -1,7 +1,7 @@
 ﻿/*
  * Author      : Jackson Currie
  * Email       : 30005345@student.toiohomai.ac.nz
- * Last Edited : 17th October 2018
+ * Last Edited : 18th October 2018
  * Description : Event methods from the GUI components
  */
 
@@ -30,6 +30,8 @@ namespace CustomerDB
             LoadDB();
             ClearBoxes();
             DisplayCustomers();
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
         }
 
         // Add data to database
@@ -87,6 +89,7 @@ namespace CustomerDB
                     {
                         results++;
                         lbxCustomers.Items.Add(customer.GetCustomer());
+                        lbxCustomers.SetSelected(0, true);
                     }
                 }
 
@@ -95,6 +98,7 @@ namespace CustomerDB
                 {
                     MessageBox.Show("Customer not found, please try again.", "Search");
                     DisplayCustomers();
+                    ClearBoxes();
                     tbxCustomerName.Focus();
                 }
             }
@@ -105,8 +109,11 @@ namespace CustomerDB
         {
             // Re-list all customers
             lbxCustomers.Items.Clear();
+            ClearBoxes();
             DisplayCustomers();
             btnAdd.Enabled = true;
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
         }
 
         // Clear list button
@@ -114,68 +121,61 @@ namespace CustomerDB
         {
             // Clear the list
             lbxCustomers.Items.Clear();
+            ClearBoxes();
             tbxCustomerName.Focus();
             btnAdd.Enabled = true;
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
         }
 
         // Update button
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // Check if seleted item
-            if(lbxCustomers.SelectedIndex >= 0)
+            // Check if fields are empty
+            if(tbxFirstname.Text != "" && tbxLastname.Text != "" && tbxPhone.Text != "")
             {
-                // Check if fields are empty
-                if(tbxFirstname.Text != "" && tbxLastname.Text != "" && tbxPhone.Text != "")
+                // Use phone number as identity
+                string phone = data[2];
+
+                // Search database
+                foreach (Customer customer in CustomerDB)
                 {
-                    // Use phone number as identity
-                    string phone = data[2];
-
-                    // Search database
-                    foreach (Customer customer in CustomerDB)
+                    // Found identity
+                    if(customer.Phone == tbxPhone.Text && customer.Phone != phone)
                     {
-                        // Found identity
-                        if(customer.Phone == tbxPhone.Text && customer.Phone != phone)
-                        {
-                            MessageBox.Show("Someone with that phone number already exists.", "Update");
-                            return;
-                        }
+                        MessageBox.Show("Someone with that phone number already exists.", "Update");
+                        return;
                     }
-
-                    // Search database
-                    foreach (Customer customer in CustomerDB)
-                    {
-                        // Update data
-                        if(customer.Phone == phone)
-                        {
-                            customer.FName = tbxFirstname.Text;
-                            customer.LName = tbxLastname.Text;
-                            customer.Phone = tbxPhone.Text;
-                        }
-                    }
-
-                    // Re-list customers
-                    ClearBoxes();
-                    lbxCustomers.Items.Clear();
-                    DisplayCustomers();
-                    MessageBox.Show("Customer details updated.", "Update");
-                    btnAdd.Enabled = true;
                 }
 
-                // Empty fields
-                else
+                // Search database
+                foreach (Customer customer in CustomerDB)
                 {
-                    MessageBox.Show("All text fields must be filled to update.", "Update");
+                    // Update data
+                    if(customer.Phone == phone)
+                    {
+                        customer.FName = tbxFirstname.Text;
+                        customer.LName = tbxLastname.Text;
+                        customer.Phone = tbxPhone.Text;
+                    }
                 }
-            }
 
-            // Nothing slected
-            else
-            {
-                MessageBox.Show("Please select a customer to update.", "Update");
+                // Re-list customers
+                ClearBoxes();
+                tbxCustomerName.Focus();
                 lbxCustomers.Items.Clear();
                 DisplayCustomers();
+                MessageBox.Show("Customer details updated.", "Update");
+                btnAdd.Enabled = true;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
             }
 
+            // Empty fields
+            else
+            {
+                MessageBox.Show("All text fields must be filled to update.", "Update");
+            }
         }
 
         // Add button
@@ -215,48 +215,32 @@ namespace CustomerDB
         // Delete button
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // Check if customr selected
-            if (lbxCustomers.SelectedIndex >= 0)
+            // Make sure of delete
+            DialogResult result = MessageBox.Show("Are you sure you want to delete " + data[0] + ".", "Delete", MessageBoxButtons.YesNo);
+
+            // If sure
+            if (result == DialogResult.Yes)
             {
-                // Make sure of delete
-                DialogResult result = MessageBox.Show("Are you sure you want to delete " + data[0] + ".", "Delete", MessageBoxButtons.YesNo);
 
-                // If sure
-                if (result == DialogResult.Yes)
+                // Search database
+                foreach (Customer customer in CustomerDB)
                 {
-
-                    // Search database
-                    foreach (Customer customer in CustomerDB)
+                    // Delete customer
+                    if (customer.Phone == data[2])
                     {
-                        // Delete customer
-                        if (customer.Phone == data[2])
-                        {
-                            CustomerDB.Remove(customer);
-                            break;
-                        }
+                        CustomerDB.Remove(customer);
+                        break;
                     }
-
-                    // Re-list customers
-                    ClearBoxes();
-                    lbxCustomers.Items.Clear();
-                    DisplayCustomers();
-                    MessageBox.Show("Customer has been deleted", "Delete");
-                    btnAdd.Enabled = true;
                 }
 
-                // Not sure
-                else
-                {
-                    MessageBox.Show("Operation cancelled.", "Delete");
-                }
-            }
-
-            // No customer seleted
-            else
-            {
-                MessageBox.Show("Please select a customer to delete.", "Delete");
+                // Re-list customers
+                ClearBoxes();
                 lbxCustomers.Items.Clear();
                 DisplayCustomers();
+                MessageBox.Show("Customer has been deleted", "Delete");
+                btnAdd.Enabled = true;
+                btnUpdate.Enabled = false;
+                btnDelete.Enabled = false;
             }
         }
 
@@ -265,8 +249,11 @@ namespace CustomerDB
         {
             // Clear input fields
             ClearBoxes();
-            tbxFirstname.Focus();
+            lbxCustomers.SetSelected(0, false);
             btnAdd.Enabled = true;
+            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+            tbxFirstname.Focus();
         }
 
         // When customer selected
@@ -277,7 +264,20 @@ namespace CustomerDB
             {
                 // Set selection data
                 data = lbxCustomers.SelectedItem.ToString().Split(new[] { "\t\t" }, StringSplitOptions.None).ToList();
+
+                foreach (Customer customer in CustomerDB)
+                {
+                    if (customer.Phone == data[2])
+                    {
+                        tbxFirstname.Text = customer.FName;
+                        tbxLastname.Text = customer.LName;
+                        tbxPhone.Text = customer.Phone;
+                    }
+                }
+
                 btnAdd.Enabled = false;
+                btnUpdate.Enabled = true;
+                btnDelete.Enabled = true;
             }
         }
 
