@@ -18,7 +18,7 @@ namespace Task2
 
             for(int i = 0; i < n; i++)
             {
-                Console.Write("Enter vlaue: ");
+                Console.Write("Enter value: ");
                 stack.Push(Convert.ToInt32(Console.ReadLine()));
             }
 

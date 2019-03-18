@@ -25,7 +25,7 @@ namespace Task3
 
             foreach(char item in stack)
             {
-                Console.WriteLine(item);
+                Console.Write(item);
             }
 
             Console.ReadKey();

@@ -11,8 +11,11 @@ namespace Task1
     {
         static void Main(string[] args)
         {
-            Stack stack = new Stack(5);
-            for(int i = 0; i < 5; i++)
+            Console.Write("How many values: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            Stack stack = new Stack(n);
+            for(int i = 0; i < n; i++)
             {
                 Console.Write("Enter value: ");
                 stack.Push(Console.ReadLine());
